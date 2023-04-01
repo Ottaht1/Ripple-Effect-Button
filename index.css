@@ -1,0 +1,61 @@
+/* Set the margin of the body to 0  and center it's content using flexbox*/
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+  background: #abdbe3;
+  font-family: sans-serif;
+}
+
+/* Style the header */
+h1 {
+  font-size: 50px;
+  font-weight: 100;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: #063970;
+  padding: 0 20px;
+  text-align: center;
+}
+
+/*Style the button*/
+.btn {
+  background: #76b5c5;
+  padding: 20px 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+
+/*Style the button's text*/
+.btn span {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* Create the hover effect using pseudo elements */
+.btn::before {
+  content: "";
+  position: absolute;
+  background: #063970;
+  width: 0px;
+  height: 0px;
+  top: var(--x); /*Set the top position of the pseudo element to the value of the "--x" custom property*/
+  left: var(--y);/*Set the top position of the pseudo element to the value of the "--y" custom property*/
+  transform: translate(-50%, -50%);/* Center the pseudo element to the center of the button*/
+  border-radius: 50%; /*Make the pseudo element a circle*/
+  transition: width 0.5s, height 0.5s; /*Animate the width and height of the pseudo element*/
+}
+
+
+/* When the button is hovered, increase the width and height of the pseudo element to 300px */
+.btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
